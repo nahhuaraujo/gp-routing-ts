@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { lazy, Suspense } from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
+import { AuthGuard } from './guard';
+import store from './redux/store';
+import { PrivateRoutes, PublicRoutes } from './routes';
+import { Loading } from './pages';
 
-function App() {
+const Login = lazy(() => import('./pages/Login/Login'));
+const About = lazy(() => import('./pages/About/About'));
+const Private = lazy(() => import('./pages/Private/Private'));
+const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Suspense fallback={<Loading />}>
+        <Provider store={store}>
+          <Router>
+            <Routes>
+              <Route path='/' element={<Navigate to={PrivateRoutes.PRIVATE} />} />
+              <Route path={PublicRoutes.LOGIN} element={<Login />} />
+              <Route element={<AuthGuard />}>
+                <Route path={`${PrivateRoutes.PRIVATE}/*`} element={<Private />} />
+              </Route>
+              <Route path={PublicRoutes.ABOUT} element={<About />} />
+              <Route path='*' element={<NotFound />} />
+            </Routes>
+          </Router>
+        </Provider>
+      </Suspense>
     </div>
   );
-}
+};
 
 export default App;
