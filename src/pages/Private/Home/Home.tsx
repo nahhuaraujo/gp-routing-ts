@@ -1,16 +1,10 @@
-import { useUserActions } from '../../../hooks';
+import { LogoutButton } from '../../../components';
 
 const Home = () => {
-  const { resetUser } = useUserActions();
-
-  const logout = () => {
-    resetUser();
-  };
-
   return (
     <div>
       <h1>Home</h1>
-      <button onClick={logout}>Logout</button>
+      <LogoutButton />
     </div>
   );
 };

@@ -1,30 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { User } from '../../models';
+import { Roles, User } from '../../models';
+import { clearLocalStorage, getLocalStorage, setLocalStorage } from '../../util/localStorage';
 
 const initialState: User = {
   id: 0,
   name: '',
   email: '',
-};
-
-const setUserInLocalStorage = (user: User) => {
-  localStorage.setItem('user', JSON.stringify(user));
-};
-
-const getUserFromLocalStorage = () => {
-  return JSON.parse(localStorage.getItem('user') as string);
+  role: Roles.USER,
 };
 
 export const userSlice = createSlice({
   name: 'user',
-  initialState: getUserFromLocalStorage() ? getUserFromLocalStorage() : initialState,
+  initialState: getLocalStorage('user') ? getLocalStorage('user') : initialState,
   reducers: {
     createUser: (state, action) => {
       const newState = {
         ...state,
         ...action.payload,
       };
-      setUserInLocalStorage(newState);
+      setLocalStorage('user', newState);
       return newState;
     },
     updateUser: (state, action) => {
@@ -32,11 +26,11 @@ export const userSlice = createSlice({
         ...state,
         ...action.payload,
       };
-      setUserInLocalStorage(newState);
+      setLocalStorage('user', newState);
       return newState;
     },
     resetUser: () => {
-      setUserInLocalStorage(initialState);
+      clearLocalStorage('user');
       return initialState;
     },
   },
