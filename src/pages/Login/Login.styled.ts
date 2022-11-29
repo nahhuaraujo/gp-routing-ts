@@ -4,7 +4,7 @@ export const Login = styled.form`
   border: 1px solid black;
   padding: 1rem;
   width: max-content;
-  margin: 1rem auto;
+  margin: 0 auto;
 
   > h1 {
     padding-bottom: 1rem;
@@ -13,12 +13,17 @@ export const Login = styled.form`
     display: block;
   }
   > input {
-    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    margin: 1rem;
+    background-color: transparent;
+    color: inherit;
   }
   > button {
     width: max-content;
     margin: 0 auto;
     padding: 0.5rem 1rem;
     display: block;
+    background-color: transparent;
+    color: inherit;
   }
 `;

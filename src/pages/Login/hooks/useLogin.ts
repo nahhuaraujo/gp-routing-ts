@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useUserActions } from '../../../hooks';
 import { PrivateRoutes } from '../../../routes';
 
+const url = process.env.REACT_APP_MULTI_URL as string;
+
 export const useLogin = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -19,7 +21,7 @@ export const useLogin = () => {
     e.preventDefault();
     const userLogin = async () => {
       try {
-        const response = await axios.post('http://localhost:4000/api/login', { username, password });
+        const response = await axios.post(`${url}/auth/login`, { username, password });
         login(response.data);
         navigate(`/${PrivateRoutes.PRIVATE}`);
       } catch (error) {
