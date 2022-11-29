@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { buttonStyle, darkGreen } from '../../styles/global-styled-css';
 
 export const Login = styled.form`
-  border: 1px solid black;
+  border: 1px solid ${darkGreen};
   padding: 1rem;
   width: max-content;
   margin: 0 auto;
@@ -20,10 +21,11 @@ export const Login = styled.form`
   }
   > button {
     width: max-content;
-    margin: 0 auto;
     padding: 0.5rem 1rem;
+    border: 1px solid ${darkGreen};
+    margin: 0 auto;
     display: block;
     background-color: transparent;
-    color: inherit;
+    ${buttonStyle}
   }
 `;

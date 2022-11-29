@@ -4,11 +4,8 @@ import * as S from './Dashboard.styled';
 
 const Dashboard = () => {
   const user = useSelector((store: AppStore) => store.user);
-  console.log(user);
   return (
     <S.Dashboard>
-      <h1>Welcome to your dashboard, {user.name}.</h1>
-      <h3>Here is some of your data</h3>
       <table>
         <thead>
           <tr>

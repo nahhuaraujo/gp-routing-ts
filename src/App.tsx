@@ -1,11 +1,11 @@
 import { lazy, Suspense } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
+import * as S from './App.styled';
 import { Loading } from './components';
 import { AuthGuard } from './guard';
 import store from './redux/store';
 import { PrivateRoutes, PublicRoutes } from './routes';
-import * as S from './App.styled';
 
 const Login = lazy(() => import('./pages/Login/Login'));
 const About = lazy(() => import('./pages/About/About'));

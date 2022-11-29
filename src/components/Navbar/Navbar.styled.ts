@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { buttonStyle } from '../../styles/global-styled-css';
 
 export const Navbar = styled.header`
   background-color: #222f3e;
@@ -9,6 +10,6 @@ export const Navbar = styled.header`
 
 export const Navlink = styled(Link)`
   text-decoration: none;
-  color: inherit;
   padding: 0.5rem 1rem;
+  ${buttonStyle}
 `;
