@@ -3,12 +3,12 @@ import { useUserActions } from '../../hooks';
 import * as S from './LogoutButton.styled';
 
 const Logout = () => {
-  const { resetUser } = useUserActions();
+  const { resetUserData } = useUserActions();
   const navigate = useNavigate();
 
   const logout = () => {
-    resetUser();
-    navigate('/');
+    resetUserData();
+    navigate('/login');
   };
 
   return <S.Logout onClick={logout}>Logout</S.Logout>;
