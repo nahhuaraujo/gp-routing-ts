@@ -6,7 +6,6 @@ const Login = () => {
 
   return (
     <S.Login onSubmit={submitHandler}>
-      <h1>Login</h1>
       <label htmlFor='username'>Username</label>
       <input id='username' type='text' onChange={changeHandler} value={username} autoFocus />
       <label htmlFor='password'>Password</label>
