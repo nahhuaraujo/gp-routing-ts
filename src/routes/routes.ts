@@ -1,10 +1,12 @@
 export enum PublicRoutes {
+  HOME = 'home',
   LOGIN = 'login',
   ABOUT = 'about',
 }
 
 export enum PrivateRoutes {
   PRIVATE = 'private',
-  HOME = 'home',
+  PROFILE = 'profile',
   DASHBOARD = 'dashboard',
+  FRUITS = 'fruits',
 }

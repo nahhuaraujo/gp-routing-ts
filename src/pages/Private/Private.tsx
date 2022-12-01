@@ -1,21 +1,17 @@
-import { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { RoleGuard } from '../../guard';
-import { PrivateRoutes } from '../../routes';
 import { Roles } from '../../models';
-import { Navbar } from '../../components';
-
-const Home = lazy(() => import('./Home/Home'));
-const Dashboard = lazy(() => import('./Dashboard/Dashboard'));
-const NotFound = lazy(() => import('../NotFound/NotFound'));
+import { PrivateRoutes } from '../../routes';
+import { Dashboard, Fruits, Profile } from './';
+import { NotFound } from '../';
 
 const Private = () => {
   return (
     <>
-      <Navbar />
       <Routes>
-        <Route path='/' element={<Navigate to={PrivateRoutes.HOME} />} />
-        <Route path={PrivateRoutes.HOME} element={<Home />} />
+        <Route path='/' element={<Navigate to={PrivateRoutes.DASHBOARD} />} />
+        <Route path={PrivateRoutes.FRUITS} element={<Fruits />} />
+        <Route path={PrivateRoutes.PROFILE} element={<Profile />} />
         <Route element={<RoleGuard role={Roles.ADMIN} />}>
           <Route path={PrivateRoutes.DASHBOARD} element={<Dashboard />} />
         </Route>
