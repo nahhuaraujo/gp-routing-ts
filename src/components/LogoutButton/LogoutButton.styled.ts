@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { buttonStyle } from '../../styles/global-styled-css';
+import { buttonStyle, defaultPadding } from '../../styles/global-styled-css';
 
 export const Logout = styled.button`
-  padding: 0.5rem 1rem;
+  padding: ${defaultPadding};
   border: none;
   background-color: transparent;
 
