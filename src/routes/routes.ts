@@ -1,6 +1,7 @@
 export enum PublicRoutes {
   HOME = 'home',
   LOGIN = 'login',
+  REGISER = 'register',
   ABOUT = 'about',
 }
 
