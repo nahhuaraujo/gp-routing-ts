@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { buttonStyle, defaultPadding } from '../../styles/global-styled-css';
+import { defaultLinkButtonStyle, defaultLinkTextStyle, defaultPadding } from '../../styles/global-styled-css';
 
 interface IProps {
   padding?: 'none' | 'default';
+  type?: 'text' | 'button';
 }
 
 export const NavLink = styled(Link)`
@@ -11,5 +12,5 @@ export const NavLink = styled(Link)`
   padding: ${({ padding = 'default' }: IProps) => (padding === 'default' ? `${defaultPadding}` : '0')};
   display: flex;
   align-items: center;
-  ${buttonStyle}
+  ${({ type = 'button' }: IProps) => (type === 'button' ? defaultLinkButtonStyle : defaultLinkTextStyle)}
 `;

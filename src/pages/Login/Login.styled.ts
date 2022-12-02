@@ -1,16 +1,22 @@
 import styled from 'styled-components';
-import { buttonStyle, darkGreen, defaultPadding } from '../../styles/global-styled-css';
+import { darkGreen, defaultLinkButtonStyle, defaultPadding } from '../../styles/global-styled-css';
 
-export const Login = styled.form`
+export const Login = styled.div`
+  h1 {
+    padding-top: 1rem;
+    text-align: center;
+  }
+`;
+
+export const LoginForm = styled.form`
   width: max-content;
   border: 1px solid ${darkGreen};
   padding: 1rem;
-  margin: 2rem auto 0;
+  margin: 1rem auto 0;
 
-  > h1 {
-    padding-bottom: 1rem;
-  }
   > label {
+    padding-left: 1rem;
+    text-align: left;
     display: block;
   }
   > input {
@@ -26,6 +32,11 @@ export const Login = styled.form`
     margin: 0 auto;
     display: block;
     background-color: transparent;
-    ${buttonStyle}
+    ${defaultLinkButtonStyle}
   }
+`;
+
+export const FormRegisterLabel = styled.div`
+  padding-top: 1rem;
+  text-align: center;
 `;

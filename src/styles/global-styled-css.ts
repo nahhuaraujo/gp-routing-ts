@@ -34,7 +34,7 @@ export const tableBorder = css`
   }
 `;
 
-export const buttonStyle = css`
+export const defaultLinkButtonStyle = css`
   color: inherit;
   font-size: inherit;
   cursor: pointer;
@@ -48,4 +48,14 @@ export const buttonStyle = css`
     color: inherit;
   }
   transition: 300ms;
+`;
+
+export const defaultLinkTextStyle = css`
+  display: inline;
+  text-decoration: none;
+  color: inherit;
+
+  :hover {
+    color: ${darkGreen};
+  }
 `;
