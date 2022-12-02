@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { AppStore } from '../../../redux/store';
+import { firstLetterToUpperCase } from '../../../util/string.utils';
 import * as S from './Profile.styled';
 
 const Profile = () => {
@@ -18,11 +19,11 @@ const Profile = () => {
         </thead>
         <tbody>
           <tr>
-            <td>{user?.image && <img src={user.image} alt={user.username} />}</td>
-            <td>{user?.location?.name}</td>
+            <td>{user?.image ? <img src={user.image} alt={user.username} /> : 'N/A'}</td>
+            <td>{user?.location}</td>
             <td>{user?.species}</td>
             <td>{user?.gender}</td>
-            <td>{user.role.toLowerCase()}</td>
+            <td>{firstLetterToUpperCase(user.role)}</td>
           </tr>
         </tbody>
       </table>

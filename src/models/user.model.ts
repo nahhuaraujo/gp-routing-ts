@@ -1,16 +1,12 @@
-import { Roles } from './roles';
-
-export interface User {
-  id: number;
+export interface IUser {
+  id: string;
   name: string;
   username: string;
   email: string;
-  role: Roles;
+  role: 'USER' | 'ADMIN' | '';
   token: string;
   image?: string;
-  location?: {
-    name: string;
-  };
+  location?: string;
   species?: string;
   gender?: string;
 }

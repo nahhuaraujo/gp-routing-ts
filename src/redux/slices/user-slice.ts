@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { Roles, User } from '../../models';
+import { Roles, IUser } from '../../models';
 import { clearLocalStorage, getLocalStorage, setLocalStorage } from '../../util/localStorage';
 
-const initialState: User = {
-  id: 0,
+const initialState: IUser = {
+  id: '',
   name: '',
   username: '',
   email: '',
-  role: Roles.USER,
+  role: '',
   token: '',
 };
 
